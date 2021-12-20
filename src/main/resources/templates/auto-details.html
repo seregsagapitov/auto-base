@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Index</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <br>
+    <h1>Информация о студенте</h1>
+    <div th:if="${auto != null}">
+        <span th:text="${auto.id_auto}"/>
+        <br>
+        <span th:text="${auto.trademark_id}"/>
+        <br>
+        <span th:text="${auto.model_id}"/>
+        <br>
+        <span th:text="${auto.type_vagon_id}"/>
+        <br>
+        <span th:text="${auto.year_produce}"/>
+        <br>
+        <span th:text="${auto.mileage}"/>
+        <br>
+        <span th:text="${auto.engine_capacity}"/>
+        <br>
+        <span th:text="${auto.engine_power}"/>
+        <br>
+        <span th:text="${auto.city_id}"/>
+        <br>
+        <span th:text="${auto.price}"/>
+        <br>
+        <span th:text="${auto.features}"/>
+
+    </div>
+    <div th:unless="${auto != null}">
+        Какая-то непонятная айдишка
+    </div>
+
+</div>
+</body>
+</html>
+
+<td th:text="${}"/>
+<td th:text="${auto.}"/>
+<td th:text="${auto.}"/>
+<td th:text="${auto.}"/>
+<td th:text="${auto.}"/>
+<td th:text="${auto.}"/>
+<td th:text="${auto.}"/>
+<td th:text="${auto.}"/>
+<td th:text="${auto.}"/>
+<td th:text="${auto.}"/>
+<td th:text="${auto.}"/>
