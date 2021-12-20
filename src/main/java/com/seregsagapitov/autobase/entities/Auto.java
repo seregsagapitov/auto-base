@@ -17,8 +17,8 @@ public class Auto {
     @Column(name = "trademark_id")
     private long trademark_id;
 
-    @OneToMany
-    @JoinColumn(name = "id_trademark")
+   // @OneToMany
+    //@JoinColumn(name = "id_trademark")
 
 
     @Column(name = "model_id")
