@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавить товар</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}"/>
+</head>
+
+<html>
+
+<body>
+
+<div th:replace="~{navigation :: navi(AddAuto)}"/>
+<div class="container">
+    <form th:action="@{/auto/add}" th:object="${auto}" method="post">
+        <div class="form-group">
+            <label for="autoTrademark">Марка</label>
+            <input type="text" th:field="*{trademark}" class="form-control" id="autoTrademark" placeholder="Введите марку автомобиля">
+        </div>
+        <div class="form-group">
+            <label for="autoModel">Модель</label>
+            <input th:field="*{model}" type="text" class="form-control" id="autoModel" placeholder="Введите модель автомобиля">
+        </div>
+        <div class="form-group">
+            <label for="autoTypeVagon">Тип кузова</label>
+            <input th:field="*{typeVagon}" type="text" class="form-control" id="autoTypeVagon" placeholder="Введите тип кузова">
+        </div>
+        <div class="form-group">
+            <label for="autoYear_produce">Модель</label>
+            <input th:field="*{year_produce}" type="text" class="form-control" id="autoYear_produce" placeholder="Введите год выпуска">
+        </div>
+<!--        <div class="form-group">-->
+<!--            <label for="autoCost">Модель</label>-->
+<!--            <input th:field="*{cost}" type="text" class="form-control" id="autoCost" placeholder="Введите цену товара">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="autoCost">Модель</label>-->
+<!--            <input th:field="*{cost}" type="text" class="form-control" id="autoCost" placeholder="Введите цену товара">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="autoCost">Модель</label>-->
+<!--            <input th:field="*{cost}" type="text" class="form-control" id="autoCost" placeholder="Введите цену товара">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="autoCost">Модель</label>-->
+<!--            <input th:field="*{cost}" type="text" class="form-control" id="autoCost" placeholder="Введите цену товара">-->
+<!--        </div>-->
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</div>
+</body>
+</html>

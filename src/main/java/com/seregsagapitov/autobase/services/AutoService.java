@@ -10,8 +10,14 @@ import java.util.List;
 
 @Service
 public class AutoService {
-    @Autowired
+
     private AutoRepository autoRepository;
+
+    @Autowired
+    public void setAutoRepository(AutoRepository autoRepository) {
+        this.autoRepository = autoRepository;
+    }
+
 
     public List<Auto> getAllAuto() {
         return (List<Auto>) autoRepository.findAll();
@@ -19,6 +25,10 @@ public class AutoService {
 
     public Auto getAutoById_auto(Long id_auto) {
         return  autoRepository.findById(id_auto).orElse(null);
-        //return autoRepository.findById(id_auto).orElse(null);
     }
+    public Auto saveOrUpdate(Auto auto) {
+        return autoRepository.save(auto);
+    }
+
+
 }

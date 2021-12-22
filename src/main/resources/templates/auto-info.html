@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<div th:replace="~{navigation :: navi(Home)}" />
 
 <div class="container">
     <br>
@@ -37,14 +38,14 @@
         <tbody>
         <tr th:each="auto: ${auto}">
             <td th:text="${auto.id_auto}"/>
-            <td th:text="${auto.trademark_id}"/>
-            <td th:text="${auto.model_id}"/>
-            <td th:text="${auto.type_vagon_id}"/>
+            <td th:text="${auto.trademark.title_trademark}"/>
+            <td th:text="${auto.model.title_model}"/>
+            <td th:text="${auto.typeVagon.title_type_vagon}"/>
             <td th:text="${auto.year_produce}"/>
             <td th:text="${auto.mileage}"/>
             <td th:text="${auto.engine_capacity}"/>
             <td th:text="${auto.engine_power}"/>
-            <td th:text="${auto.city_id}"/>
+            <td th:text="${auto.city.title_city}"/>
             <td th:text="${auto.price}"/>
             <td th:text="${auto.features}"/>
             <td>
