@@ -3,29 +3,36 @@ package com.seregsagapitov.autobase.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
 @Table(name = "auto")
 
 public class Auto {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_auto")
     private long id_auto;
 
-    @Column(name = "trademark_id")
-    private long trademark_id;
 
-   // @OneToMany
-    //@JoinColumn(name = "id_trademark")
+//    @Column(name = "trademark_id")
+//    private long trademark_id;
+
+    @ManyToOne
+    @JoinColumn(name = "trademark_id")
+    private Trademark trademark;
 
 
-    @Column(name = "model_id")
-    private long model_id;
+    @ManyToOne
+    @JoinColumn(name = "model_id")
+    private Model model;
 
-    @Column(name = "type_vagon_id")
-    private long type_vagon_id;
+    @ManyToOne
+    @JoinColumn(name = "type_vagon_id")
+    private TypeVagon typeVagon;
 
     @Column(name = "year_produce")
     private int year_produce;
@@ -39,8 +46,10 @@ public class Auto {
     @Column(name = "engine_power")
     private double engine_power;
 
-    @Column(name = "city_id")
-    private long city_id;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 
     @Column(name = "price")
     private int price;
