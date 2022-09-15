@@ -55,46 +55,46 @@ CREATE TABLE city (
 
 
 
-INSERT INTO trademark (trademark) VALUES ('УАЗ');
-INSERT INTO trademark (trademark) VALUES ('LADA');
-INSERT INTO trademark (trademark) VALUES ('Renault');
-INSERT INTO trademark (trademark) VALUES ('TOYOTA');
-INSERT INTO trademark (trademark) VALUES ('NISSAN');
+INSERT INTO trademark (title_trademark) VALUES ('УАЗ');
+INSERT INTO trademark (title_trademark) VALUES ('LADA');
+INSERT INTO trademark (title_trademark) VALUES ('Renault');
+INSERT INTO trademark (title_trademark) VALUES ('TOYOTA');
+INSERT INTO trademark (title_trademark) VALUES ('NISSAN');
 
-INSERT INTO model (model) VALUES ('Priora');
-INSERT INTO model (model) VALUES ('Vesta');
-INSERT INTO model (model) VALUES ('Kalina');
-INSERT INTO model (model) VALUES ('Granta');
-INSERT INTO model (model) VALUES ('X-Ray');
-INSERT INTO model (model) VALUES ('Патриот');
-INSERT INTO model (model) VALUES ('Kaptur');
-INSERT INTO model (model) VALUES ('Logan');
-INSERT INTO model (model) VALUES ('Land Cruiser');
-INSERT INTO model (model) VALUES ('Navara');
-INSERT INTO model (model) VALUES ('Sandero');
-INSERT INTO model (model) VALUES ('Land Cruiser Prado');
-INSERT INTO model (model) VALUES ('Teana');
-INSERT INTO model (model) VALUES ('Camry');
+INSERT INTO model (title_model) VALUES ('Priora');
+INSERT INTO model (title_model) VALUES ('Vesta');
+INSERT INTO model (title_model) VALUES ('Kalina');
+INSERT INTO model (title_model) VALUES ('Granta');
+INSERT INTO model (title_model) VALUES ('X-Ray');
+INSERT INTO model (title_model) VALUES ('Патриот');
+INSERT INTO model (title_model) VALUES ('Kaptur');
+INSERT INTO model (title_model) VALUES ('Logan');
+INSERT INTO model (title_model) VALUES ('Land Cruiser');
+INSERT INTO model (title_model) VALUES ('Navara');
+INSERT INTO model (title_model) VALUES ('Sandero');
+INSERT INTO model (title_model) VALUES ('Land Cruiser Prado');
+INSERT INTO model (title_model) VALUES ('Teana');
+INSERT INTO model (title_model) VALUES ('Camry');
 
-INSERT INTO type_vagon (type_vagon) VALUES ('Седан');
-INSERT INTO type_vagon (type_vagon) VALUES ('Универсал');
-INSERT INTO type_vagon (type_vagon) VALUES ('Хэтчбэк');
-INSERT INTO type_vagon (type_vagon) VALUES ('Минивэн');
-INSERT INTO type_vagon (type_vagon) VALUES ('Купе');
-INSERT INTO type_vagon (type_vagon) VALUES ('Пикап');
-INSERT INTO type_vagon (type_vagon) VALUES ('Смарт');
+INSERT INTO type_vagon (title_type_vagon) VALUES ('Седан');
+INSERT INTO type_vagon (title_type_vagon) VALUES ('Универсал');
+INSERT INTO type_vagon (title_type_vagon) VALUES ('Хэтчбэк');
+INSERT INTO type_vagon (title_type_vagon) VALUES ('Минивэн');
+INSERT INTO type_vagon (title_type_vagon) VALUES ('Купе');
+INSERT INTO type_vagon (title_type_vagon) VALUES ('Пикап');
+INSERT INTO type_vagon (title_type_vagon) VALUES ('Смарт');
 
-INSERT INTO city (city) VALUES ('Красноярск');
-INSERT INTO city (city) VALUES ('Абакан');
-INSERT INTO city (city) VALUES ('Иркутск');
-INSERT INTO city (city) VALUES ('Новосибирск');
-INSERT INTO city (city) VALUES ('Кемерово');
-INSERT INTO city (city) VALUES ('Новокузнецк');
+INSERT INTO city (title_city) VALUES ('Красноярск');
+INSERT INTO city (title_city) VALUES ('Абакан');
+INSERT INTO city (title_city) VALUES ('Иркутск');
+INSERT INTO city (title_city) VALUES ('Новосибирск');
+INSERT INTO city (title_city) VALUES ('Кемерово');
+INSERT INTO city (title_city) VALUES ('Новокузнецк');
 
-
+SET FOREIGN_KEY_CHECKS = 1;
 INSERT INTO auto (trademark_id, model_id, type_vagon_id, year_produce, mileage, engine_capacity, engine_power, city_id, price, features)
  VALUES (2, 1, 2, 2012, 147800, 1.6, 98, 1, 285000, 'ОТС');
-SET FOREIGN_KEY_CHECKS = 1;
+
 
 
 

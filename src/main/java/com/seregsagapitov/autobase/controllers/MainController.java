@@ -1,6 +1,9 @@
 package com.seregsagapitov.autobase.controllers;
+
 import com.seregsagapitov.autobase.entities.Auto;
+import com.seregsagapitov.autobase.entities.Trademark;
 import com.seregsagapitov.autobase.services.AutoService;
+import com.seregsagapitov.autobase.services.TradeMarkServise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +17,13 @@ public class MainController {
 
 
     private AutoService autoService;
+    private TradeMarkServise tradeMarkServise;
 
 
     @Autowired
     public void setAutoService(AutoService autoService) {
         this.autoService = autoService;
     }
-
-
 
 
     @GetMapping("/")
@@ -43,14 +45,16 @@ public class MainController {
     }
 
     @GetMapping("/auto/add")
-    public String addProductPage(Model model) {
+    public String addAutoPage(Model model) {
         Auto auto = new Auto();
         model.addAttribute("auto", auto);
+        model.addAttribute("trademark", tradeMarkServise.getAllTrademark());
+
         return "add-auto";
     }
 
     @PostMapping("/auto/add")
-    public String addProduct(Model model, @ModelAttribute("auto") Auto auto) {
+    public String addAuto(Model model, @ModelAttribute("auto") Auto auto) {
         autoService.saveOrUpdate(auto);
         return "redirect:/";
     }

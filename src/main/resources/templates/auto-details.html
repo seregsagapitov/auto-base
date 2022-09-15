@@ -13,10 +13,10 @@
 </head>
 
 <body>
-
+<div th:replace="~{navigation :: navi(auto-info)}"/>
 <div class="container">
     <br>
-    <h1>Информация о студенте</h1>
+    <h1>Информация об автомобиле</h1>
     <div th:if="${auto != null}">
         <span th:text="${auto.id_auto}"/>
         <br>
@@ -48,15 +48,3 @@
 </div>
 </body>
 </html>
-
-<!--<td th:text="${}"/>-->
-<!--<td th:text="${auto.}"/>-->
-<!--<td th:text="${auto.}"/>-->
-<!--<td th:text="${auto.}"/>-->
-<!--<td th:text="${auto.}"/>-->
-<!--<td th:text="${auto.}"/>-->
-<!--<td th:text="${auto.}"/>-->
-<!--<td th:text="${auto.}"/>-->
-<!--<td th:text="${auto.}"/>-->
-<!--<td th:text="${auto.}"/>-->
-<!--<td th:text="${auto.}"/>-->

@@ -2,6 +2,7 @@ package com.seregsagapitov.autobase.services;
 
 
 import com.seregsagapitov.autobase.entities.Auto;
+import com.seregsagapitov.autobase.entities.Trademark;
 import com.seregsagapitov.autobase.repositories.AutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,9 @@ public class AutoService {
     public Auto saveOrUpdate(Auto auto) {
         return autoRepository.save(auto);
     }
+
+
+
 
 
 }

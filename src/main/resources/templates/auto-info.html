@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<div th:replace="~{navigation :: navi(Home)}" />
+<div th:replace="~{navigation :: navi(auto-info)}"/>
 
 <div class="container">
     <br>
@@ -36,20 +36,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="auto: ${auto}">
-            <td th:text="${auto.id_auto}"/>
-            <td th:text="${auto.trademark.title_trademark}"/>
-            <td th:text="${auto.model.title_model}"/>
-            <td th:text="${auto.typeVagon.title_type_vagon}"/>
-            <td th:text="${auto.year_produce}"/>
-            <td th:text="${auto.mileage}"/>
-            <td th:text="${auto.engine_capacity}"/>
-            <td th:text="${auto.engine_power}"/>
-            <td th:text="${auto.city.title_city}"/>
-            <td th:text="${auto.price}"/>
-            <td th:text="${auto.features}"/>
+        <tr th:each="autoEach: ${auto}">
+            <td th:text="${autoEach.id_auto}"/>
+            <td th:text="${autoEach.trademark.title_trademark}"/>
+            <td th:text="${autoEach.model.title_model}"/>
+            <td th:text="${autoEach.typeVagon.title_type_vagon}"/>
+            <td th:text="${autoEach.year_produce}"/>
+            <td th:text="${autoEach.mileage}"/>
+            <td th:text="${autoEach.engine_capacity}"/>
+            <td th:text="${autoEach.engine_power}"/>
+            <td th:text="${autoEach.city.title_city}"/>
+            <td th:text="${autoEach.price}"/>
+            <td th:text="${autoEach.features}"/>
             <td>
-                <a th:href="@{${'/auto/' + auto.id_auto}}">Подробнее...</a>
+                <a th:href="@{${'/auto/' + autoEach.id_auto}}">Подробнее...</a>
             </td>
         </tr>
         </tbody>
