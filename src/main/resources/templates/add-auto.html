@@ -21,26 +21,16 @@
     <form th:action="@{/auto/add}" th:object="${auto}" method="post">
 
 
-
         <div class="form-group">
-
-<!--            <label for="autoTrademark">Марка</label>-->
-<!--            <input type="text" th:field="*{trademark}" class="form-control" id="autoTrademark"-->
-<!--                   placeholder="Введите марку автомобиля">-->
-
             <label for="autoTrademark">Марка</label>
-            <select type="text" th:field="*{trademark}" class="form-control" id="autoTrademark">
-                                <option th:each="trademarkEach : ${trademark}"
-                                        th:value="${trademarkEach}"
-                                        th:text="${trademarkEach}" />
-                                     / th:selected="${trademarkEach.equals(trademarkEach.title_trademark)}"/>
-                            </select>
-
-
-
+            <select type="text" name="Марка" th:field="*{trademark}" class="form-control" id="autoTrademark">
+<!--                <option value="" disabled selected> Марка </option>-->
+                <option th:each="trademarkEach : ${trademarkList}"
+                        th:value="${trademarkEach.getTitle_trademark()}"
+                        th:text="${trademarkEach.getTitle_trademark()}"
+                        th:selected="${trademarkEach.equals(trademarkEach.getTitle_trademark())}"/>
+            </select>
         </div>
-
-
 
 
         <div class="form-group">
@@ -48,26 +38,25 @@
             <input th:field="*{model}" type="text" class="form-control" id="autoModel"
                    placeholder="Введите модель автомобиля">
         </div>
+
+
         <div class="form-group">
+            <label for="autoTypeVagon">Тип кузова</label>
+            <!--            <input th:field="*{typeVagon}" type="text" class="form-control" id="autoTypeVagon"-->
+            <!--                   placeholder="Введите тип кузова">-->
 
-        <label for="autoTypeVagon">Тип кузова</label>
-          <input th:field="*{typeVagon}" type="text" class="form-control" id="autoTypeVagon"  placeholder="Введите тип кузова">
-
-
-<!--            <select class="form-control" id="status" name="status">-->
-<!--                <option th:each="auto : ${auto}"-->
-<!--                        th:value="${auto.typeVagon.title_type_vagon}"-->
-<!--                        th:text="${auto.typeVagon.title_type_vagon}"-->
-<!--                        th:selected="${auto.equals(auto.typeVagon.title_type_vagon)}"/>-->
-<!--            </select>-->
-
+            <select type="text" name="Тип кузова" th:field="*{typeVagon}" class="form-control" id="autoTypeVagon">
+                <option th:each="typeVagonEach : ${typeVagonList}"
+                        th:value="${typeVagonEach.getTitle_type_vagon()}"
+                        th:text="${typeVagonEach.getTitle_type_vagon()}"
+                        th:selected="${typeVagonEach.equals(typeVagonEach.getTitle_type_vagon())}"/>
+            </select>
 
         </div>
         <div class="form-group">
             <label for="autoYear_produce">Год выпуска</label>
             <input th:field="*{year_produce}" type="text" class="form-control" id="autoYear_produce"
                    placeholder="Введите год выпуска">
-
 
 
         </div>
@@ -87,16 +76,16 @@
         </div>
         <div class="form-group">
             <label for="autoCity">Город</label>
-            <input th:field="*{city}" type="text" class="form-control" id="autoCity" placeholder="Введите город">
+            <input th:field="*{city}" type="text" class="form-control" id="autoCity" placeholder="Город">
         </div>
         <div class="form-group">
             <label for="autoPrice">Цена</label>
-            <input th:field="*{price}" type="text" class="form-control" id="autoPrice" placeholder="Введите город">
+            <input th:field="*{price}" type="text" class="form-control" id="autoPrice" placeholder="Цена">
         </div>
         <div class="form-group">
             <label for="autoFeatures">Описание</label>
             <input th:area="*{features}" type="text" class="form-control" id="autoFeatures"
-                   placeholder="Введите описание">
+                   placeholder="Описание">
         </div>
 
         <button type="submit" class="btn btn-primary">Сохранить</button>

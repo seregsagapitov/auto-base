@@ -18,4 +18,11 @@ public class Trademark {
     @Column(name = "title_trademark")
     private String title_trademark;
 
+    public long getId_trademark() {
+        return id_trademark;
+    }
+
+    public String getTitle_trademark() {
+        return title_trademark;
+    }
 }

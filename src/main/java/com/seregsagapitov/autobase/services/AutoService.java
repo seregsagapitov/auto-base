@@ -24,6 +24,7 @@ public class AutoService {
         return (List<Auto>) autoRepository.findAll();
     }
 
+
     public Auto getAutoById_auto(Long id_auto) {
         return  autoRepository.findById(id_auto).orElse(null);
     }

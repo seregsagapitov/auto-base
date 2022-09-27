@@ -16,4 +16,12 @@ public class TypeVagon {
 
     @Column(name = "title_type_vagon")
     private String title_type_vagon;
+
+    public long getId_type_vagon() {
+        return id_type_vagon;
+    }
+
+    public String getTitle_type_vagon() {
+        return title_type_vagon;
+    }
 }
