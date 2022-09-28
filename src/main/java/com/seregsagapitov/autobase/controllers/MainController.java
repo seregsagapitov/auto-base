@@ -1,11 +1,10 @@
 package com.seregsagapitov.autobase.controllers;
 
 import com.seregsagapitov.autobase.entities.Auto;
+import com.seregsagapitov.autobase.entities.City;
 import com.seregsagapitov.autobase.entities.Trademark;
 import com.seregsagapitov.autobase.entities.TypeVagon;
-import com.seregsagapitov.autobase.services.AutoService;
-import com.seregsagapitov.autobase.services.TradeMarkServise;
-import com.seregsagapitov.autobase.services.TypeVagonServise;
+import com.seregsagapitov.autobase.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,17 +22,30 @@ public class MainController {
     private AutoService autoService;
     private TradeMarkServise tradeMarkServise;
     private TypeVagonServise typeVagonServise;
+    private ModelServise modelServise;
+    private CityServise cityServise;
 
 
+    @Autowired
+    public void setCityServise(CityServise cityServise) {
+        this.cityServise = cityServise;
+    }
+
+    @Autowired
+    public void setModelServise(ModelServise modelServise) {
+        this.modelServise = modelServise;
+    }
 
     @Autowired
     public void setAutoService(AutoService autoService) {
         this.autoService = autoService;
     }
+
     @Autowired
     public void setTradeMarkServise(TradeMarkServise tradeMarkServise) {
         this.tradeMarkServise = tradeMarkServise;
     }
+
     @Autowired
     public void setTypeVagonServise(TypeVagonServise typeVagonServise) {
         this.typeVagonServise = typeVagonServise;
@@ -64,9 +76,13 @@ public class MainController {
         Auto auto = new Auto();
         List<Trademark> trademarkList = tradeMarkServise.getAllTrademark();
         List<TypeVagon> typeVagonList = typeVagonServise.getAllTypeVagon();
+        List<com.seregsagapitov.autobase.entities.Model> modelList = modelServise.getAllModels();
+        List<City> cityList = cityServise.getAllCities();
         model.addAttribute("auto", auto);
         model.addAttribute("trademarkList", trademarkList);
         model.addAttribute("typeVagonList", typeVagonList);
+        model.addAttribute("modelList", modelList);
+        model.addAttribute("cityList", cityList);
 
 
         return "add-auto";

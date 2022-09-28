@@ -26,17 +26,22 @@
             <select type="text" name="Марка" th:field="*{trademark}" class="form-control" id="autoTrademark">
 <!--                <option value="" disabled selected> Марка </option>-->
                 <option th:each="trademarkEach : ${trademarkList}"
-                        th:value="${trademarkEach.getTitle_trademark()}"
-                        th:text="${trademarkEach.getTitle_trademark()}"
-                        th:selected="${trademarkEach.equals(trademarkEach.getTitle_trademark())}"/>
+                        th:value="${trademarkEach.id_trademark}"
+                        th:text="${trademarkEach.title_trademark}"
+                        th:selected="${trademarkEach.equals(trademarkEach.id_trademark)}"/>
             </select>
         </div>
 
 
         <div class="form-group">
             <label for="autoModel">Модель</label>
-            <input th:field="*{model}" type="text" class="form-control" id="autoModel"
-                   placeholder="Введите модель автомобиля">
+            <select type="text" name="Марка" th:field="*{model}" class="form-control" id="autoModel">
+                <!--                <option value="" disabled selected> Марка </option>-->
+                <option th:each="modelEach : ${modelList}"
+                        th:value="${modelEach.id_model}"
+                        th:text="${modelEach.title_model}"
+                        th:selected="${modelEach.equals(modelEach.id_model)}"/>
+            </select>
         </div>
 
 
@@ -47,9 +52,9 @@
 
             <select type="text" name="Тип кузова" th:field="*{typeVagon}" class="form-control" id="autoTypeVagon">
                 <option th:each="typeVagonEach : ${typeVagonList}"
-                        th:value="${typeVagonEach.getTitle_type_vagon()}"
-                        th:text="${typeVagonEach.getTitle_type_vagon()}"
-                        th:selected="${typeVagonEach.equals(typeVagonEach.getTitle_type_vagon())}"/>
+                        th:value="${typeVagonEach.id_type_vagon}"
+                        th:text="${typeVagonEach.title_type_vagon}"
+                        th:selected="${typeVagonEach.equals(typeVagonEach.id_type_vagon)}"/>
             </select>
 
         </div>
@@ -76,7 +81,13 @@
         </div>
         <div class="form-group">
             <label for="autoCity">Город</label>
-            <input th:field="*{city}" type="text" class="form-control" id="autoCity" placeholder="Город">
+            <select type="text" name="Марка" th:field="*{city}" class="form-control" id="autoCity">
+                <!--                <option value="" disabled selected> Марка </option>-->
+                <option th:each="cityEach : ${cityList}"
+                        th:value="${cityEach.id_city}"
+                        th:text="${cityEach.title_city}"
+                        th:selected="${cityEach .equals(cityEach.id_city)}"/>
+            </select>
         </div>
         <div class="form-group">
             <label for="autoPrice">Цена</label>

@@ -18,8 +18,6 @@ public class Auto {
     private long id_auto;
 
 
-//    @Column(name = "trademark_id")
-//    private long trademark_id;
 
     @ManyToOne
     @JoinColumn(name = "trademark_id")
