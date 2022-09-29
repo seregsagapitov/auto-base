@@ -20,6 +20,14 @@ public class AutoService {
     }
 
 
+    public Auto findById(Long id) {
+        return autoRepository.findById(id).orElse(null);
+    }
+
+    public Auto findByTitle(String title){
+        return autoRepository.findOneByTitle(title);
+    }
+
     public List<Auto> getAllAuto() {
         return (List<Auto>) autoRepository.findAll();
     }

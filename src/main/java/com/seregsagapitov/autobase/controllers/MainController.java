@@ -71,9 +71,12 @@ public class MainController {
         return "auto-details";
     }
 
-    @GetMapping("/auto/add")
-    public String addAutoPage(Model model) {
-        Auto auto = new Auto();
+    @GetMapping("/auto/edit/{id_auto}")
+    public String addAutoPage(Model model, @PathVariable("id") Long id) {
+        Auto auto = autoService.findById(id);
+        if (auto == null) {
+            auto = new Auto();
+        }
         List<Trademark> trademarkList = tradeMarkServise.getAllTrademark();
         List<TypeVagon> typeVagonList = typeVagonServise.getAllTypeVagon();
         List<com.seregsagapitov.autobase.entities.Model> modelList = modelServise.getAllModels();
@@ -83,13 +86,21 @@ public class MainController {
         model.addAttribute("typeVagonList", typeVagonList);
         model.addAttribute("modelList", modelList);
         model.addAttribute("cityList", cityList);
-
-
-        return "add-auto";
+        return "edit-auto";
     }
 
-    @PostMapping("/auto/add")
+    @PostMapping("/auto/edit")
     public String addAuto(Model model, @ModelAttribute("auto") Auto auto) {
+
+        Auto existing = autoService.findByTitle(auto.getTrademark().getTitle_trademark());
+        if (existing != null && !auto.getId_auto().equals(existing.getId_auto())) {
+            // product.setTitle(null);
+            model.addAttribute("auto", auto);
+            model.addAttribute("productCreationError", "Product title already exists");
+            return "edit-auto";
+        }
+        
+        
         autoService.saveOrUpdate(auto);
         return "redirect:/";
     }

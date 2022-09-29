@@ -20,7 +20,7 @@
 <div class="container">
     <form th:action="@{/auto/add}" th:object="${auto}" method="post">
 
-
+        <input hidden type="text" th:field="*{id_auto}" class="form-control" id="auto">
         <div class="form-group">
             <label for="autoTrademark">Марка</label>
             <select type="text" name="Марка" th:field="*{trademark}" class="form-control" id="autoTrademark">

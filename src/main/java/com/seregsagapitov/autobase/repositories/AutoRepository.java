@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface AutoRepository extends CrudRepository<Auto, Long> {
     //List<Auto> findByModel_id(Long id);
-
+    Auto findOneByTitle(String title);
 
 }
