@@ -24,9 +24,11 @@ public class AutoService {
         return autoRepository.findById(id).orElse(null);
     }
 
-    public Auto findByTitle(String title){
-        return autoRepository.findOneByTitle(title);
-    }
+//    public Auto findAutoByTrademarkTitle_trademark(String title){
+//        return autoRepository.findAutoByTrademarkTitle_trademark(title);
+//    }
+
+
 
     public List<Auto> getAllAuto() {
         return (List<Auto>) autoRepository.findAll();

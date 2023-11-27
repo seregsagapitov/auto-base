@@ -18,7 +18,7 @@
 
 <div th:replace="~{navigation :: navi(AddAuto)}"/>
 <div class="container">
-    <form th:action="@{/auto/add}" th:object="${auto}" method="post">
+    <form th:action="@{/auto/edit}" th:object="${auto}" method="post">
 
         <input hidden type="text" th:field="*{id_auto}" class="form-control" id="auto">
         <div class="form-group">

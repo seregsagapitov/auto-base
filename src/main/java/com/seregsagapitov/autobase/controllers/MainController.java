@@ -90,16 +90,16 @@ public class MainController {
     }
 
     @PostMapping("/auto/edit")
-    public String addAuto(Model model, @ModelAttribute("auto") Auto auto) {
+    public String addAuto(@ModelAttribute("auto") Auto auto, Model model) {
 
-        Auto existing = autoService.findByTitle(auto.getTrademark().getTitle_trademark());
-        if (existing != null && !auto.getId_auto().equals(existing.getId_auto())) {
-            // product.setTitle(null);
-            model.addAttribute("auto", auto);
-            model.addAttribute("productCreationError", "Product title already exists");
-            return "edit-auto";
-        }
-        
+//        Auto existing = autoService.findAutoByTrademarkTitle_trademark(auto.getTrademark().getTitle_trademark());
+//        if (existing != null && !auto.equals(existing)) {
+//            // product.setTitle(null);
+//            model.addAttribute("auto", auto);
+//            model.addAttribute("productCreationError", "Product title already exists");
+//            return "edit-auto";
+//        }
+
         
         autoService.saveOrUpdate(auto);
         return "redirect:/";

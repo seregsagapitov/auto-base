@@ -18,10 +18,13 @@ public class Auto {
     private long id_auto;
 
 
+//    @OneToMany
+//    @JoinColumn(name = "trademark_id")
+//    private List<Trademark> trademarks;
 
     @ManyToOne
     @JoinColumn(name = "trademark_id")
-    private Trademark trademark;
+     private Trademark trademark;
 
 
     @ManyToOne
@@ -55,4 +58,98 @@ public class Auto {
     @Column(name = "features")
     private String features;
 
+    public Auto() {
+    }
+
+    public long getId_auto() {
+        return id_auto;
+    }
+
+//    public List<Trademark> getTrademarks() {
+//        return trademarks;
+//    }
+
+    public Trademark getTrademark() {
+        return trademark;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public TypeVagon getTypeVagon() {
+        return typeVagon;
+    }
+
+    public int getYear_produce() {
+        return year_produce;
+    }
+
+    public int getMileage() {
+        return mileage;
+    }
+
+    public double getEngine_capacity() {
+        return engine_capacity;
+    }
+
+    public double getEngine_power() {
+        return engine_power;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getFeatures() {
+        return features;
+    }
+
+    public void setId_auto(long id_auto) {
+        this.id_auto = id_auto;
+    }
+
+//    public void setTrademarks(List<Trademark> trademarks) {
+//        this.trademarks = trademarks;
+//    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public void setTypeVagon(TypeVagon typeVagon) {
+        this.typeVagon = typeVagon;
+    }
+
+    public void setYear_produce(int year_produce) {
+        this.year_produce = year_produce;
+    }
+
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
+    }
+
+    public void setEngine_capacity(double engine_capacity) {
+        this.engine_capacity = engine_capacity;
+    }
+
+    public void setEngine_power(double engine_power) {
+        this.engine_power = engine_power;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setFeatures(String features) {
+        this.features = features;
+    }
 }
