@@ -19,42 +19,61 @@
     <br>
     <h1>Автомобили</h1>
 
-    <table class="table table-hover">
-        <thead class="thead-dark">
-        <tr>
-            <th>id_auto</th>
-            <th>Марка</th>
-            <th>Модель</th>
-            <th>Тип кузова</th>
-            <th>Год выпуска</th>
-            <th>Пробег</th>
-            <th>Объем двигателя</th>
-            <th>Мощность</th>
-            <th>Город</th>
-            <th>Цена</th>
-            <th>Дополнительная Информация</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="autoEach: ${auto}">
-            <td th:text="${autoEach.id_auto}"/>
-            <td th:text="${autoEach.trademark.title_trademark}"/>
-            <td th:text="${autoEach.model.title_model}"/>
-            <td th:text="${autoEach.typeVagon.title_type_vagon}"/>
-            <td th:text="${autoEach.year_produce}"/>
-            <td th:text="${autoEach.mileage}"/>
-            <td th:text="${autoEach.engine_capacity}"/>
-            <td th:text="${autoEach.engine_power}"/>
-            <td th:text="${autoEach.city.title_city}"/>
-            <td th:text="${autoEach.price}"/>
-            <td th:text="${autoEach.features}"/>
-            <td>
-                <a th:href="@{${'/auto/' + autoEach.id_auto}}">Подробнее...</a>
-                <a th:href="@{${'/auto/' + autoEach.id_auto}}">Изменить...</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <span th:if="${auto.size() == 0}">В списке машин нет</span>
+    <div th:unless="${auto.size() == 0}">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th>id_auto</th>
+                <th>Марка</th>
+                <th>Модель</th>
+                <th>Тип кузова</th>
+                <th>Год выпуска</th>
+                <th>Пробег</th>
+                <th>Объем двигателя</th>
+                <th>Мощность</th>
+                <th>Город</th>
+                <th>Цена</th>
+                <th>Дополнительная Информация</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="autoEach: ${auto}" th:attr="auto_index=${autoEach.id_auto}">
+
+                <td th:text="${autoEach.id_auto}"/>
+                <td th:text="${autoEach.trademark.title_trademark}"/>
+                <td th:text="${autoEach.model.title_model}"/>
+                <td th:text="${autoEach.typeVagon.title_type_vagon}"/>
+                <td th:text="${autoEach.year_produce}"/>
+                <td th:text="${autoEach.mileage}"/>
+                <td th:text="${autoEach.engine_capacity}"/>
+                <td th:text="${autoEach.engine_power}"/>
+                <td th:text="${autoEach.city.title_city}"/>
+                <td>
+                    <span th:text="${autoEach.price}"
+                          th:classAppend="${autoEach.price > 900000} ? 'badge text-bg-warning' : ''"></span>
+                </td>
+                <td th:text="${autoEach.features}"/>
+                <td>
+                    <a th:href="@{${'/auto/' + autoEach.id_auto}}">Подробнее...</a>
+                    <a th:href="@{${'/auto/' + autoEach.id_auto}}">Изменить...</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+
 </div>
 </body>
 </html>
