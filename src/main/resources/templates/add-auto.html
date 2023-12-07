@@ -21,18 +21,39 @@
     <form th:action="@{/auto/add}" th:object="${auto}" method="post">
         <div class="form-group">
             <label for="autoTrademark">Марка автомобиля</label>
-            <input type="text" th:field="*{trademark.title_trademark}" class="form-control" id="autoTrademark"
+            <input list="trademarkList" type="text" class="form-control" id="autoTrademark"
                    placeholder="Введите марку автомобиля">
+            <datalist id="trademarkList">
+                <select th:field="*{trademark.title_trademark}">
+                    <option th:each="trademark : ${trademarkList}"
+                            th:text="${trademark.title_trademark}"
+                            th:value="${trademark.title_trademark}">
+                </select>
+            </datalist>
         </div>
         <div class="form-group">
             <label for="autoModel">Модель автомобиля</label>
-            <input th:field="*{model.title_model}" type="text" class="form-control" id="autoModel"
+            <input list="modelList" type="text" class="form-control" id="autoModel"
                    placeholder="Введите модель автомобиля">
+            <datalist id="modelList">
+                <select th:field="*{model.title_model}">
+                    <option th:each="model : ${modelList}"
+                            th:text="${model.title_model}"
+                            th:value="${model.title_model}">
+                </select>
+            </datalist>
         </div>
         <div class="form-group">
             <label for="autoTypeVagon">Тип кузова</label>
-            <input th:field="*{typeVagon.title_type_vagon}" type="text" class="form-control" id="autoTypeVagon"
+            <input list="typeVagonList" type="text" class="form-control" id="autoTypeVagon"
                    placeholder="Введите тип кузова">
+            <datalist id="typeVagonList">
+                <select th:field="*{typeVagon.title_type_vagon}">
+                    <option th:each="typevagon : ${typeVagonList}"
+                            th:text="${typevagon.title_type_vagon}"
+                            th:value="${typevagon.title_type_vagon}">
+                </select>
+            </datalist>
         </div>
         <div class="form-group">
             <label for="autoYear_produce">Год выпуска</label>
@@ -64,8 +85,6 @@
                             th:value="${city.title_city}">
                 </select>
             </datalist>
-
-
         </div>
         <div class="form-group">
             <label for="autoPrice">Цена</label>

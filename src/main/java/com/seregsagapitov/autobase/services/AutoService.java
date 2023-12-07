@@ -30,6 +30,10 @@ public class AutoService {
 
 
 
+//    public Auto findByTitleTrademark(String title_trademark) {
+//        return autoRepository.findAutoByTrademark(title_trademark);
+//    }
+
     public List<Auto> getAllAuto() {
         return (List<Auto>) autoRepository.findAll();
     }

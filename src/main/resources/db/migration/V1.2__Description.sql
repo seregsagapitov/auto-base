@@ -1,6 +1,10 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS auto;
+DROP TABLE IF EXISTS trademark;
+DROP TABLE IF EXISTS model;
+DROP TABLE IF EXISTS type_vagon;
+DROP TABLE IF EXISTS city;
 
 CREATE TABLE auto (
                       id_auto INT(11) NOT NULL AUTO_INCREMENT,
@@ -17,35 +21,35 @@ CREATE TABLE auto (
                       PRIMARY KEY(id_auto)
 ) ENGINE=InnoDB CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS trademark;
+
 CREATE TABLE trademark (
                            id_trademark INT(11) NOT NULL AUTO_INCREMENT,
                            title_trademark VARCHAR(100) NOT NULL,
                            PRIMARY KEY(id_trademark)
 )  ENGINE=InnoDB CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS model;
+
 CREATE TABLE model (
                        id_model INT(11) NOT NULL AUTO_INCREMENT,
                        title_model VARCHAR(100) NOT NULL,
                        PRIMARY KEY(id_model)
 ) ENGINE=InnoDB CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS type_vagon;
+
 CREATE TABLE type_vagon (
                             id_type_vagon INT(11) NOT NULL AUTO_INCREMENT,
                             title_type_vagon VARCHAR(100) NOT NULL,
                             PRIMARY KEY(id_type_vagon)
 ) ENGINE=InnoDB CHARSET=utf8mb4;
 
-DROP TABLE IF EXISTS city;
+
 CREATE TABLE city (
                       id_city INT(11) NOT NULL AUTO_INCREMENT,
                       title_city VARCHAR(100) NOT NULL,
                       PRIMARY KEY(id_city)
 ) ENGINE=InnoDB CHARSET=utf8mb4;
 
-
+SET FOREIGN_KEY_CHECKS = 1;
 
 INSERT INTO trademark (title_trademark) VALUES ('УАЗ');
 INSERT INTO trademark (title_trademark) VALUES ('LADA');
@@ -86,4 +90,3 @@ INSERT INTO city (title_city) VALUES ('Новокузнецк');
 
 INSERT INTO auto (trademark_id, model_id, type_vagon_id, year_produce, mileage, engine_capacity, engine_power, city_id, price, features)
 VALUES (2, 1, 2, 2012, 147800, 1.6, 98, 1, 285000, 'ОТС');
-SET FOREIGN_KEY_CHECKS = 1;

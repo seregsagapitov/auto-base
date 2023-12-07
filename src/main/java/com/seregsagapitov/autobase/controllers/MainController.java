@@ -105,8 +105,14 @@ public class MainController {
     public String addAutoPage(Model model) {
         Auto auto = new Auto();
         List<City> cityList = cityServise.getAllCities();
+        List<com.seregsagapitov.autobase.entities.Model> modelList = modelServise.getAllModels();
+        List<Trademark> trademarkList = tradeMarkServise.getAllTrademark();
+        List<TypeVagon> typeVagonList = typeVagonServise.getAllTypeVagon();
         model.addAttribute("auto", auto);
         model.addAttribute("cityList", cityList);
+        model.addAttribute("modelList", modelList);
+        model.addAttribute("trademarkList", trademarkList);
+        model.addAttribute("typeVagonList", typeVagonList);
         return "add-auto";
     }
 
