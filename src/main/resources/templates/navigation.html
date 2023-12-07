@@ -30,8 +30,8 @@
                 <li class="nav-item" th:classappend="${activeTab == 'auto-info' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{/auto}">Автомобили</a>
                 </li>
-                <li class="nav-item" th:classappend="${activeTab == 'AddAuto' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/auto/edit/0}">Добавить автомобиль</a>
+                <li class="nav-item" th:classappend="${activeTab == 'addAuto' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/auto/add}">Добавить автомобиль</a>
                 </li>
             </ul>
         </div>

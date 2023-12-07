@@ -89,19 +89,34 @@ public class MainController {
         return "edit-auto";
     }
 
-    @PostMapping("/auto/edit")
-    public String addAuto(@ModelAttribute("auto") Auto auto, Model model) {
+//    @PostMapping("/auto/edit")
+//    public String addAuto(@ModelAttribute("auto") Auto auto, Model model) {
+//
+////        Auto existing = autoService.findAutoByTrademarkTitle_trademark(auto.getTrademark().getTitle_trademark());
+////        if (existing != null && !auto.equals(existing)) {
+////            // product.setTitle(null);
+////            model.addAttribute("auto", auto);
+////            model.addAttribute("productCreationError", "Product title already exists");
+//        return "edit-auto";
+////        }
+//    }
 
-//        Auto existing = autoService.findAutoByTrademarkTitle_trademark(auto.getTrademark().getTitle_trademark());
-//        if (existing != null && !auto.equals(existing)) {
-//            // product.setTitle(null);
-//            model.addAttribute("auto", auto);
-//            model.addAttribute("productCreationError", "Product title already exists");
-//            return "edit-auto";
-//        }
+    @GetMapping("/auto/add")
+    public String addAutoPage(Model model) {
+        Auto auto = new Auto();
+        List<City> cityList = cityServise.getAllCities();
+        model.addAttribute("auto", auto);
+        model.addAttribute("cityList", cityList);
+        return "add-auto";
+    }
 
-        
+    @PostMapping("/auto/add")
+    public String addAuto(Model model, @ModelAttribute("auto") Auto auto) {
         autoService.saveOrUpdate(auto);
         return "redirect:/";
     }
+
+
+        
+
 }
